@@ -29,6 +29,11 @@ const Home = () => {
              Register Page
        </ThemedText>
       </Link>
+       <Link href="/profile" style={[styles.link, {borderBottomColor: linkBorderColor}]}>
+        <ThemedText>
+             Profile Page
+       </ThemedText>
+      </Link>
 
     </ThemedView>
   );
