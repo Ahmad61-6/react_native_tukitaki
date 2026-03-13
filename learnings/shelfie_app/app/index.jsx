@@ -34,6 +34,11 @@ const Home = () => {
              Profile Page
        </ThemedText>
       </Link>
+       <Link href="/flexdirection" style={[styles.link, {borderBottomColor: linkBorderColor}]}>
+        <ThemedText>
+             Flex Direction
+       </ThemedText>
+      </Link>
 
     </ThemedView>
   );
