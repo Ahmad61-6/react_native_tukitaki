@@ -15,7 +15,6 @@ const PreviewLayout = ({
         padding:10,
         flex:1,
     }}>
-        <ThemedText style= {styles.lebel}>{label}</ThemedText>
         <ThemedView style={styles.row}>
             {values.map(value =>
                 (
@@ -44,16 +43,16 @@ export default PreviewLayout
 
 const styles = StyleSheet.create({
     container:{
-        marginTop:10,
         flex:1,
+        marginTop:10,
         backgroundColor: 'aliceblue'
     },
-    lebel: {
-        fontWeight:'bold',
-        fontSize:24,
-        textAlign:'center',
-        marginBottom:10,
-    },
+    // lebel: {
+    //     fontWeight:'bold',
+    //     fontSize:24,
+    //     textAlign:'center',
+    //     marginBottom:10,
+    // },
     row:{
         flexDirection:'row',
         flexWrap:'wrap'

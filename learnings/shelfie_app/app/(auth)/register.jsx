@@ -9,14 +9,30 @@ import ThemedButton from '../../components/ThemedButton';
 import ThemedTextInput from '../../components/ThemedTextInput';
 import { Link } from 'expo-router'; 
 import React, { useState } from 'react' 
+import { useUser } from '../../hooks/useUser';
 
 
 const Register = () => {
    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
+    const { register} = useUser();
     
-  const handleSubmit = () => {
-    console.log("Register button pressed, email:", email, "password:", password);
+  const handleSubmit = async () => {
+    try{
+      setLoading(true);
+      setError('');
+      await register(email, password);
+      setEmail("");
+      setPassword("");
+      console.log("Registration successful");
+    }catch(error){
+      setError(error.message || 'Registration failed');
+      console.error("Register error:", error);
+    }finally{
+      setLoading(false);
+    }
   }
   return (
     <TouchableWithoutFeedback onPress = {Keyboard.dismiss}>
@@ -52,8 +68,10 @@ const Register = () => {
       secureTextEntry = {true}
       />
 
-        <ThemedButton onPress={handleSubmit}>
-          <Text style = {{color: '#f2f2f2'}}>Register</Text>
+      {error ? <ThemedText style={{color: 'red', marginBottom: 10}}>{error}</ThemedText> : null}
+
+        <ThemedButton onPress={handleSubmit} disabled={loading}>
+          <Text style = {{color: '#f2f2f2'}}>{loading ? 'Registering...' : 'Register'}</Text>
         </ThemedButton>
 
         <Spacer height={100}/>

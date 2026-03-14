@@ -3,8 +3,8 @@ import { Client, Account, ID, Models, Avatars } from 'react-native-appwrite';
 
 export const client = new Client();
 client
-.setEndpoint(' https://nyc.cloud.appwrite.io/v1')
-  .setProject('69af05c90038f6833004')   
+.setEndpoint('https://sgp.cloud.appwrite.io/v1')
+  .setProject('69b586e2003937d285eb')   
   .setPlatform('com.ayman.shelfie');
 
 export const account = new Account(client);

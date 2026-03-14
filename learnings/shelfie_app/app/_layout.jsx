@@ -2,6 +2,7 @@ import { Slot, Stack } from 'expo-router'
 import { StyleSheet, Text, useColorScheme, View } from 'react-native'
 import {Colors} from "../constants/Colors"
 import { StatusBar } from 'expo-status-bar'
+import { UserProvider } from '../contexts/UserContext'
 
 
 const RootLayout
@@ -10,7 +11,7 @@ const RootLayout
     console.log(colorScheme);
     const theme = Colors[colorScheme] ?? Colors.light; 
   return (
-    <>
+    <UserProvider>
     <StatusBar style = "auto"/>
         <Stack screenOptions = {{headerTitleAlign: 'center',headerTitleStyle: {fontWeight: 'bold'},
         headerStyle: {backgroundColor: theme.navBackground },
@@ -22,7 +23,7 @@ const RootLayout
         <Stack.Screen name = "(dashboard)" options={{headerShown: false}}/>
         <Stack.Screen name = "flexdirection" options={{title: "Flex Direction"}} />
         </Stack>
-        </>
+        </UserProvider> 
 
   )
 }

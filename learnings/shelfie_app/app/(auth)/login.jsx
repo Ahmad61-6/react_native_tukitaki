@@ -1,68 +1,64 @@
-import { StyleSheet,Text,TextInput } from 'react-native'
-import { Link } from 'expo-router'; 
-import React, { useState } from 'react' 
-
-// themed components
-import ThemedView from '../../components/ThemedView'; 
-import ThemedText from '../../components/ThemedText';
-import Spacer from '../../components/Spacer';
-import ThemedButton from '../../components/ThemedButton';
-import ThemedTextInput from '../../components/ThemedTextInput';
+import { StyleSheet, Text, Keyboard, TouchableWithoutFeedback } from 'react-native'
+import { Link } from 'expo-router'
+import { useState } from 'react'
+import { useUser } from "../../hooks/useUser";
+import ThemedView from '../../components/ThemedView'
+import ThemedText from '../../components/ThemedText'
+import Spacer from '../../components/Spacer'
+import ThemedButton from '../../components/ThemedButton'
+import ThemedTextInput from "../../components/ThemedTextInput"
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const handleSubmit = () => {
-    console.log("Login button pressed, email:", email, "password:", password);
-  } 
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+const { user } = useUser();
+  const handleSubmit = async () => {
+    console.log('current user value: ', user)
+    console.log('login form submitted: ', email, password)
+  }
 
   return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <ThemedView style={styles.container}>
+        
+        <Spacer />
+        <ThemedText title={true} style={styles.title}>
+          Login to Your Account
+        </ThemedText>
 
-
-    <ThemedView style = {styles.container}>
+        {/* <TextInput placeholder="Email" /> */}
 
         <Spacer />
-        <ThemedText style = {styles.title} title = {true}>Login to your account</ThemedText>
+        <ThemedTextInput
+          style={{ marginBottom: 20, width: "80%" }}
+          placeholder="Email"
+          value={email}
+          onChangeText={setEmail}
+          keyboardType="email-address"
+        />
 
-      <ThemedTextInput 
-      style={
-        {
-          width: '80%',
-          marginBottom: 20,
-
-        }
-      }
-      placeholder='Email'
-      keyboardType = 'email-address'
-      onChangeText = {setEmail}
-      value = {email}
-
-      />
-      <ThemedTextInput 
-      style={
-        {
-          width: '80%',
-          marginBottom: 20,
-
-        }
-      }
-      placeholder='Password'
-      onChangeText = {setPassword}
-      value = {password}
-      secureTextEntry = {true}
-      />
-
+        <ThemedTextInput
+          style={{ marginBottom: 20, width: "80%" }}
+          placeholder="Password"
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry
+        />
 
         <ThemedButton onPress={handleSubmit}>
-          <Text style = {{color: '#f2f2f2'}}>Login</Text>
+          <Text style={{ color: '#f2f2f2' }}>Login</Text>
         </ThemedButton>
 
-        <Spacer height={100}/>
-        <Link href="/register" style = {styles.link}>
-            <ThemedText style = {{textAlign: 'center'}}>Don't have an account? Register</ThemedText>
+        <Spacer height={100} />
+        <Link href="/register" replace>
+          <ThemedText style={{ textAlign: "center" }}>
+            Register instead
+          </ThemedText>
         </Link>
 
-    </ThemedView>
+      </ThemedView>
+    </TouchableWithoutFeedback>
   )
 }
 
@@ -72,12 +68,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   title: {
     textAlign: "center",
     fontSize: 18,
     marginBottom: 30
-  },
- 
+  }
 })
