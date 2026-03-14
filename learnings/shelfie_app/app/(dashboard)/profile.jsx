@@ -1,18 +1,20 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React, { useState } from 'react'
+import React, { use, useState } from 'react'
 import ThemedView from '../../components/ThemedView'
 import ThemedText from '../../components/ThemedText'
 import Spacer from '../../components/Spacer'
 import { useUser } from '../../hooks/useUser'
 import ThemedButton from '../../components/ThemedButton'
 import {Colors} from '../../constants/Colors'
+import ThemedLoader from '../../components/ThemedLoader';
+
 const Profile
  = () => {
 
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
 
-    const {logout} = useUser()
+    const {logout,user} = useUser()
 
     const handleLogout = async() => {
         try{
@@ -30,18 +32,13 @@ const Profile
     }
   return (
    <ThemedView style={styles.container}>
-    <ThemedText title={true} style={styles.heading}>Your Email</ThemedText>
+    <ThemedText title={true} style={styles.heading}>{user?.email || 'Email'}</ThemedText>
     <Spacer />
     <ThemedText>Time to start reading some books!</ThemedText>
     <Spacer/>
-    <ThemedButton onPress={handleLogout} disabled={loading}>
-       <Text style = {{color: '#f2f2f2'}}>
-        {
-            loading ? 'Loging out..' :
-            'Logout'
-        }
-       </Text>
-        </ThemedButton>
+     {loading ? <ThemedLoader></ThemedLoader>: <ThemedButton onPress={handleLogout} disabled={loading}>
+          <Text style={{ color: '#f2f2f2' }}>Logout</Text>
+        </ThemedButton>}
     <Spacer/>
     {error && <ThemedText style={styles.error}>{error}</ThemedText>}
    </ThemedView>

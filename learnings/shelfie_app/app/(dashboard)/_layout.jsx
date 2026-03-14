@@ -3,11 +3,13 @@ import React from 'react'
 import { Tabs } from 'expo-router'
 import { Colors } from '../../constants/Colors'
 import { Ionicons } from '@expo/vector-icons'
+import UserOnly from '../../components/auth/UserOnly'
 
 const DashboardLayout
  = () => {
     const theme = Colors[useColorScheme()] ?? Colors.light;
   return (
+    <UserOnly>
    <Tabs 
    screenOptions={{headerShown:false,
     tabBarStyle: {backgroundColor: theme.navBackground, paddingTop:10,
@@ -26,6 +28,7 @@ const DashboardLayout
         <Ionicons name={focused ? "person" : "person-outline"} size={24} color={focused? theme.iconColorFocused : theme.iconColor} />
     )}} />
     </Tabs>
+    </UserOnly>
   )
 }
 

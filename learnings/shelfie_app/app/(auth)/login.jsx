@@ -8,6 +8,7 @@ import Spacer from '../../components/Spacer'
 import ThemedButton from '../../components/ThemedButton'
 import ThemedTextInput from "../../components/ThemedTextInput"
 import {Colors} from '../../constants/Colors'
+import ThemedLoader from '../../components/ThemedLoader';
 
 
 const Login = () => {
@@ -59,10 +60,10 @@ const Login = () => {
           onChangeText={setPassword}
           secureTextEntry
         />
-
-        <ThemedButton onPress={handleSubmit} disabled={isloading}>
-          <Text style={{ color: '#f2f2f2' }}>{isloading ? 'login....' : 'login'}</Text>
-        </ThemedButton>
+        {isloading ? <ThemedLoader></ThemedLoader>: <ThemedButton onPress={handleSubmit} disabled={isloading}>
+          <Text style={{ color: '#f2f2f2' }}>login</Text>
+        </ThemedButton>}
+        
         <Spacer/>
         {error && <ThemedText style={styles.error}>{error}</ThemedText>}
 

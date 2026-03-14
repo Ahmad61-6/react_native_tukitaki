@@ -11,6 +11,8 @@ import { Link } from 'expo-router';
 import React, { useState } from 'react' 
 import { useUser } from '../../hooks/useUser';
 import {Colors} from '../../constants/Colors'
+import ThemedLoader from '../../components/ThemedLoader';
+
 
 
 const Register = () => {
@@ -70,14 +72,14 @@ const Register = () => {
       />
 
 
-        <ThemedButton onPress={handleSubmit} disabled={loading}>
-          <Text style = {{color: '#f2f2f2'}}>{loading ? 'Registering...' : 'Register'}</Text>
-        </ThemedButton>
+        {loading ? <ThemedLoader></ThemedLoader>: <ThemedButton onPress={handleSubmit} disabled={loading}>
+          <Text style={{ color: '#f2f2f2' }}>Register</Text>
+        </ThemedButton>}
 
         <Spacer/>
         {error && <ThemedText style={styles.error}>{error}</ThemedText>}
 
-        <Spacer height={100}/>
+        <Spacer height={100}/> 
         <Link href="/login" style = {styles.link}>
             <ThemedText style = {{textAlign: 'center'}}>Already have an account? Login</ThemedText>
         </Link>
