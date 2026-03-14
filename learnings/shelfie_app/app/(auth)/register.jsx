@@ -10,6 +10,7 @@ import ThemedTextInput from '../../components/ThemedTextInput';
 import { Link } from 'expo-router'; 
 import React, { useState } from 'react' 
 import { useUser } from '../../hooks/useUser';
+import {Colors} from '../../constants/Colors'
 
 
 const Register = () => {
@@ -68,11 +69,13 @@ const Register = () => {
       secureTextEntry = {true}
       />
 
-      {error ? <ThemedText style={{color: 'red', marginBottom: 10}}>{error}</ThemedText> : null}
 
         <ThemedButton onPress={handleSubmit} disabled={loading}>
           <Text style = {{color: '#f2f2f2'}}>{loading ? 'Registering...' : 'Register'}</Text>
         </ThemedButton>
+
+        <Spacer/>
+        {error && <ThemedText style={styles.error}>{error}</ThemedText>}
 
         <Spacer height={100}/>
         <Link href="/login" style = {styles.link}>
@@ -97,4 +100,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 30
   },
+  error:{
+    color: Colors.warning,
+    padding: 10,
+    backgroundColor: '#f5c1c8',
+    borderColor: Colors.warning,
+    borderRadius: 6,
+    marginHorizontal: 10
+  }
 })

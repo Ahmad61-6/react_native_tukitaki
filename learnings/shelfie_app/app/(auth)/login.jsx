@@ -7,15 +7,29 @@ import ThemedText from '../../components/ThemedText'
 import Spacer from '../../components/Spacer'
 import ThemedButton from '../../components/ThemedButton'
 import ThemedTextInput from "../../components/ThemedTextInput"
+import {Colors} from '../../constants/Colors'
+
 
 const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [error, setError] = useState(null)
+  const [isloading, setIsLoading] = useState(false)
+  const {login} = useUser();
 
-const { user } = useUser();
   const handleSubmit = async () => {
-    console.log('current user value: ', user)
-    console.log('login form submitted: ', email, password)
+    try{
+      setIsLoading(true)
+      setError(null)
+      await login(email,password)
+      setEmail("")
+      setPassword("")
+    }catch(error){
+      setError(error?.message || 'Login failed')
+    }
+    finally{
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -46,9 +60,11 @@ const { user } = useUser();
           secureTextEntry
         />
 
-        <ThemedButton onPress={handleSubmit}>
-          <Text style={{ color: '#f2f2f2' }}>Login</Text>
+        <ThemedButton onPress={handleSubmit} disabled={isloading}>
+          <Text style={{ color: '#f2f2f2' }}>{isloading ? 'login....' : 'login'}</Text>
         </ThemedButton>
+        <Spacer/>
+        {error && <ThemedText style={styles.error}>{error}</ThemedText>}
 
         <Spacer height={100} />
         <Link href="/register" replace>
@@ -74,5 +90,13 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 18,
     marginBottom: 30
+  },
+   error:{
+    color: Colors.warning,
+    padding: 10,
+    backgroundColor: '#f5c1c8',
+    borderColor: Colors.warning,
+    borderRadius: 6,
+    marginHorizontal: 10
   }
 })
