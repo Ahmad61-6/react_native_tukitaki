@@ -3,8 +3,9 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "@/*": ["./src/*"],
-      "@/assets/*": ["./assets/*"]
+      "@/*": ["./*"],
+      "@/assets/*": ["./assets/*"],
+      "constants/*": ["./constants/*"]
     }
   },
   "include": [
@@ -12,6 +13,7 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
-    "nativewind-env.d.ts"
+    "nativewind-env.d.ts",
+    "app/(tabs)/index.jsx"
   ]
 }
