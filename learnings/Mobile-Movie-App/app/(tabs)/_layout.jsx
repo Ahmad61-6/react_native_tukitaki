@@ -43,7 +43,7 @@ const TabsLayout = () => {
           marginHorizontal: 20,
           marginBottom: 36,
           height: 52,
-          position: "absulute",
+          position: "absolute",
           overflow: "hidden",
           borderWidth: 1,
           borderColor: "#0f0D23",
