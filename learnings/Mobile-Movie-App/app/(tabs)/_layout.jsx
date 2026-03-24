@@ -90,12 +90,6 @@ const TabsLayout = () => {
           ),
         }}
       />
-      <Tabs.Screen
-        name="movies/[id]"
-        options={{
-          href: null,
-        }}
-      />
     </Tabs>
   );
 };

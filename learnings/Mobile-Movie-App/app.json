@@ -11,6 +11,7 @@
       "icon": "./assets/logo.png"
     },
     "android": {
+      "package": "com.ayman.movie_app",
       "adaptiveIcon": {
         "backgroundColor": "#ffffff",
         "foregroundImage": "./assets/images/logo.png"
