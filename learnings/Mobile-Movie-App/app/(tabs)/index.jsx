@@ -1,4 +1,6 @@
+import MovieCard from "@/components/MovieCard";
 import SearchBar from "@/components/SearchBar";
+
 import { icons } from "@/constants/icons";
 import { fetchMovies } from "@/services/api";
 import useFetch from "@/services/useFetch";
@@ -44,14 +46,13 @@ export default function Index() {
         </ScrollView>
       ) : (
         <FlatList
+          className="px-4"
           data={data}
-          renderItem={({ item }) => (
-            <Text className="text-white  ">{item.title}</Text>
-          )}
+          renderItem={({ item }) => <MovieCard {...item} />}
           keyExtractor={(item) => item.id.toString()}
           numColumns={3}
           ListHeaderComponent={
-            <View className="px-5">
+            <View className="mb-5">
               <Image
                 source={icons.logo}
                 className="w-12 h-10 mt-20 mb-5 mx-auto"
@@ -67,6 +68,12 @@ export default function Index() {
           }
           contentContainerStyle={{
             paddingBottom: 10,
+          }}
+          columnWrapperStyle={{
+            justifyContent: "flex-start",
+            gap: 20,
+            paddingRight: 5,
+            marginBottom: 10,
           }}
           showsVerticalScrollIndicator={false}
         />
