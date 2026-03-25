@@ -2,10 +2,10 @@ import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
 import { StatusBar } from "react-native";
+import { AuthProvider } from "../contexts/AuthContext";
 import "./global.css";
 
 SplashScreen.preventAutoHideAsync();
-const isLoggesIn = false;
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -22,20 +22,17 @@ export default function RootLayout() {
   if (!fontsLoaded) return null;
 
   return (
-    <>
+    <AuthProvider>
       <StatusBar style="auto" />
       <Stack
+        initialRouteName="(protected)"
         screenOptions={{
           headerShown: false,
         }}
       >
-        <Stack.Protected guard={!isLoggesIn}>
-          <Stack.Screen name="(auth)" options={{}} />
-        </Stack.Protected>
-        <Stack.Protected guard={isLoggesIn}>
-          <Stack.Screen name="(protected)" options={{}} />
-        </Stack.Protected>
+        <Stack.Screen name="(auth)" />
+        <Stack.Screen name="(protected)" options={{ animation: "none" }} />
       </Stack>
-    </>
+    </AuthProvider>
   );
 }

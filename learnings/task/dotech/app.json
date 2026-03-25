@@ -44,11 +44,13 @@
             "./assets/fonts/OpenSans-SemiBold.ttf"
           ]
         }
-      ]
+      ],
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true,
-      "reactCompiler": true
+      "reactCompiler": true,
+      "tsconfigPaths": true
     }
   }
 }
