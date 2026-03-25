@@ -6,9 +6,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        openSans: ["OpenSans-Reguler", "sans-serif"],
-        "openSans-bold": ["OpenSans-Bold", "sans-serif"],
-        "openSans-semibold": ["OpenSans-SemiBold", "sans-serif"],
+        sans: ["OpenSans-Regular", "sans-serif"],
+        bold: ["OpenSans-Bold", "sans-serif"],
+        semibold: ["OpenSans-SemiBold", "sans-serif"],
       },
     },
     colors: {
