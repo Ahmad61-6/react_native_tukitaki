@@ -8,7 +8,6 @@ import notification from "@/assets/icons/mdi_bell-notification-outline.png";
 import passwrodLeading from "@/assets/icons/password_leading_icon.png";
 import personIcon from "@/assets/icons/proicons_person.png";
 import search from "@/assets/icons/search_icon.png";
-
 import question from "@/assets/icons/stash_question_light.png";
 
 export default {
