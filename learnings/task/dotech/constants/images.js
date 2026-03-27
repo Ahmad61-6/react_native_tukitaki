@@ -1,4 +1,4 @@
-import appLogo from "@/assets/images/app_logo.jpg";
+import appLogo from "@/assets/images/app_logo.png";
 import autoImage from "@/assets/images/auto_image.png";
 import bannerImage from "@/assets/images/banner_image.png";
 import bikeImage from "@/assets/images/bikes_image.png";
