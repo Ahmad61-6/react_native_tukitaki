@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "",
+    "name": "Dotech",
     "slug": "dotech",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -15,7 +15,8 @@
         "backgroundColor": "#ffffff",
         "foregroundImage": "./assets/images/app_logo.jpg"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.ayman0.dotech"
     },
     "web": {
       "output": "static",
@@ -26,8 +27,8 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
-          "resizeMode": "cover",
+          "image": "./assets/images/app_logo.png",
+          "resizeMode": "contain",
           "backgroundColor": "#ffffff",
           "enableFullScreenImage_legacy": true,
           "dark": {
@@ -51,6 +52,12 @@
       "typedRoutes": true,
       "reactCompiler": true,
       "tsconfigPaths": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "4c0d2263-59f9-43eb-836c-5a518d3d2d08"
+      }
     }
   }
 }

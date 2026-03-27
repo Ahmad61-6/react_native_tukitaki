@@ -1,50 +1,88 @@
-# Welcome to your Expo app 👋
+# 🛍️ React Native Marketplace App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+[![React Native](https://img.shields.io/badge/React_Native-0.76-blue?logo=react)](https://reactnative.dev/)
+[![Expo](https://img.shields.io/badge/Expo-52.0-4630eb?logo=expo)](https://expo.dev/)
+[![NativeWind](https://img.shields.io/badge/NativeWind-4.0-06B6D4?logo=tailwindcss)](https://www.nativewind.dev/)
 
-## Get started
+A modern React Native marketplace app with authentication, custom tab navigation, and a floating action button. Built with Expo and NativeWind.
 
-1. Install dependencies
+---
 
-   ```bash
-   npm install
-   ```
+## ✨ Features
 
-2. Start the app
+- **Authentication** - Login, registration, and protected routes
+- **Custom Tab Bar** - Floating gradient QR button with transparent cutout
+- **Marketplace** - Product listings with skeleton loaders
+- **State Management** - Context API for user sessions and data caching
+- **Responsive UI** - Tailwind CSS styling with NativeWind
 
-   ```bash
-   npx expo start
-   ```
+---
 
-In the output, you'll find options to open the app in a
+## 🚀 Quick Start
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Prerequisites
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- Node.js (v18+)
+- npm or yarn
+- Expo Go app (for physical device)
 
-## Get a fresh project
+### Installation
 
-When you're ready, run:
+````bash
+# Clone the repository
+git clone https://github.com/Ahmad61-6/react_native_tukitaki/tree/dotech-task/learnings/task/dotech
+cd marketplace-app
 
-```bash
-npm run reset-project
-```
+# Install dependencies
+npm install
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+# Start development server
+npx expo start
 
-## Learn more
 
-To learn more about developing your project with Expo, look at the following resources:
+Run the App
+iOS Simulator: Press i
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Android Emulator: Press a
 
-## Join the community
+Physical Device: Scan QR code with Expo Go
 
-Join our community of developers creating universal apps.
+🔑 Test Credentials
+Username	Password
+testuser	password123
+johndoe	password123
+New users can also sign up directly from the app.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+🏗️ Tech Stack
+Technology	Purpose
+React Native	Mobile framework
+Expo	Development platform
+NativeWind	Tailwind CSS styling
+Expo Router	File-based navigation
+Context API	State management
+TypeScript	Type safety
+📁 Project Structure
+text
+marketplace-app/
+├── app/              # Expo Router pages
+├── components/       # Reusable UI components
+├── contexts/         # React Context providers
+├── hooks/            # Custom React hooks
+├── constants/        # Mock data and constants
+└── assets/           # Images and fonts
+🎯 Key Decisions
+NativeWind - Faster UI development with Tailwind CSS
+
+Expo Router - Simple file-based routing with protected layouts
+
+CSS Tab Bar - No heavy SVG libraries, smaller bundle size
+
+Context API - Perfect scale for this app, no external deps
+
+
+
+<div align="center"> Made with ❤️ using React Native & Expo </div> ```
+
+
+
+````
