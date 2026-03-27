@@ -1,7 +1,12 @@
+import activeBtmNavIcon1 from "@/assets/icons/active_bottom_nav_1.png";
+import activeBtmNavIcon2 from "@/assets/icons/active_bottom_nav_2.png";
+import activeBtmNavIcon3 from "@/assets/icons/active_bottom_nav_3.png";
+import activeBtmNavIcon4 from "@/assets/icons/active_bottom_nav_4.png";
 import btmNavIcon1 from "@/assets/icons/bottom_nav_marketplace.png";
-import btmNavIcon2 from "@/assets/icons/bottom_nav_profile.png";
+import btmNavIcon4 from "@/assets/icons/bottom_nav_profile.png";
 import btmNavIcon3 from "@/assets/icons/bottom_nav_road_assis.png";
-import btmNavIcon4 from "@/assets/icons/bottom_nav_services.png";
+import btmNavIcon2 from "@/assets/icons/bottom_nav_services.png";
+
 import cart from "@/assets/icons/cart_icon.png";
 import qr from "@/assets/icons/floating_qr.png";
 import notification from "@/assets/icons/mdi_bell-notification-outline.png";
@@ -15,6 +20,10 @@ export default {
   btmNavIcon2,
   btmNavIcon3,
   btmNavIcon4,
+  activeBtmNavIcon1,
+  activeBtmNavIcon2,
+  activeBtmNavIcon3,
+  activeBtmNavIcon4,
   cart,
   qr,
   notification,

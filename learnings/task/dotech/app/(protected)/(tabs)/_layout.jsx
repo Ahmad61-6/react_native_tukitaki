@@ -1,5 +1,4 @@
 import icons from "@/constants/icons";
-import MaskedView from "@react-native-masked-view/masked-view";
 import { LinearGradient } from "expo-linear-gradient";
 import { Tabs } from "expo-router";
 import {
@@ -12,54 +11,21 @@ import {
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-const TabItem = ({ focused, icon, title }) => {
-  if (focused) {
-    return (
-      <MaskedView
-        style={{ width: 86, height: 75 }}
-        maskElement={
-          <View
-            className="items-center w-full h-full"
-            style={{ paddingTop: 14 }}
-          >
-            <Image
-              source={icon}
-              className="w-7 h-7 mb-1"
-              style={{ tintColor: "black" }} // Black acts as the mask
-              resizeMode="contain"
-            />
-            <Text
-              numberOfLines={2}
-              className="text-[10px] font-bold text-center leading-tight"
-            >
-              {title}
-            </Text>
-          </View>
-        }
-      >
-        <LinearGradient
-          colors={["#EA0E2E", "#0562C3"]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          style={{ flex: 1 }}
-        />
-      </MaskedView>
-    );
-  }
+const TabItem = ({ focused, icon, activeIcon, title }) => {
+  const textColor = focused ? "#034A8F" : "#3B3B3B";
+  const currentIcon = focused ? activeIcon : icon;
 
   return (
-    <View
-      style={{ width: 86, height: 75, paddingTop: 14, alignItems: "center" }}
-    >
+    <View className="items-center  w-[80px] h-[65px] pt-3">
       <Image
-        source={icon}
-        className="w-7 h-7 mb-1"
-        style={{ tintColor: "#3B3B3B" }}
+        source={currentIcon}
+        className={focused ? "w-8 h-8" : "w-8 h-7"}
         resizeMode="contain"
       />
       <Text
         numberOfLines={2}
-        className="text-[10px] font-bold text-center text-textDeepGray leading-tight"
+        className="font-bold text-center leading-tight mt-1"
+        style={{ fontSize: 10.5, color: textColor }}
       >
         {title}
       </Text>
@@ -141,7 +107,7 @@ const FabButton = (props) => {
                   shadowOpacity: 0.4,
                   shadowRadius: 8,
                 }
-              : { elevation: 8 }, // Android shadow
+              : { elevation: 8 },
           ]}
         >
           <Image
@@ -189,6 +155,7 @@ export default function TabsLayout() {
             <TabItem
               focused={focused}
               icon={icons.btmNavIcon1}
+              activeIcon={icons.activeBtmNavIcon1}
               title="Marketplace"
             />
           ),
@@ -201,7 +168,8 @@ export default function TabsLayout() {
           tabBarIcon: ({ focused }) => (
             <TabItem
               focused={focused}
-              icon={icons.btmNavIcon4}
+              icon={icons.btmNavIcon2}
+              activeIcon={icons.activeBtmNavIcon2}
               title="Services"
             />
           ),
@@ -222,6 +190,7 @@ export default function TabsLayout() {
             <TabItem
               focused={focused}
               icon={icons.btmNavIcon3}
+              activeIcon={icons.activeBtmNavIcon3}
               title="Roadside Assistance"
             />
           ),
@@ -234,7 +203,8 @@ export default function TabsLayout() {
           tabBarIcon: ({ focused }) => (
             <TabItem
               focused={focused}
-              icon={icons.btmNavIcon2}
+              icon={icons.btmNavIcon4}
+              activeIcon={icons.activeBtmNavIcon4}
               title="Profile"
             />
           ),
