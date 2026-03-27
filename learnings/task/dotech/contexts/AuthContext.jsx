@@ -23,7 +23,7 @@ export function AuthProvider({ children }) {
 
   function login(userName, password) {
     if (userName && password) {
-      setUser({ user_name: userName });
+      setUser({ username: userName });
       setIsLoggedIn(true);
       storeAuthState({ isLoggedIn: true });
       router.replace("/(protected)");

@@ -26,17 +26,17 @@ module.exports = {
         2: "#ACACAC",
       },
       level: {
-        light: "#CDCDCD", // from levelLight
+        light: "#CDCDCD",
       },
-      // Gradients are split into start and end colors for NativeWind/Tailwind
       itemGradient: {
-        start: "#EA0E2E", // itemGradientColor
-        end: "#0562C3", // itemGradientColor
+        start: "#EA0E2E",
+        end: "#0562C3",
       },
-      // Standalone colors
-      mainText: "#3B3B3B", // from textColor
+
+      mainText: "#3B3B3B",
       colorWhite: "#FFFFFF",
       colorBlack: "#000000",
+      textDeepGray: "#3B3B3B",
     },
   },
   plugins: [],

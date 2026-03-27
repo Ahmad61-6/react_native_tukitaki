@@ -2,7 +2,7 @@ import { Text, View } from "react-native";
 
 const ServiceScreen = () => {
   return (
-    <View>
+    <View className="flex flex-1 justify-center items-center bg-colorWhite">
       <Text>ServiceScreen</Text>
     </View>
   );

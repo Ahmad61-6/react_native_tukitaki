@@ -3,6 +3,7 @@ import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
 import { StatusBar } from "react-native";
 import { AuthProvider } from "../contexts/AuthContext";
+import { MarketplaceProvider } from "../contexts/MarketPlaceContext";
 import "./global.css";
 
 SplashScreen.preventAutoHideAsync();
@@ -23,16 +24,18 @@ export default function RootLayout() {
 
   return (
     <AuthProvider>
-      <StatusBar style="auto" />
-      <Stack
-        initialRouteName="(protected)"
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
-        <Stack.Screen name="(auth)" />
-        <Stack.Screen name="(protected)" options={{ animation: "none" }} />
-      </Stack>
+      <MarketplaceProvider>
+        <StatusBar style="auto" />
+        <Stack
+          initialRouteName="(protected)"
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
+          <Stack.Screen name="(auth)" />
+          <Stack.Screen name="(protected)" options={{ animation: "none" }} />
+        </Stack>
+      </MarketplaceProvider>
     </AuthProvider>
   );
 }

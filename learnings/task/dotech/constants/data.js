@@ -22,7 +22,7 @@ export const categories = [
   { id: "4", title: "Truck &\nBuses", imagePath: images.busImage },
 ];
 
-export const promoBanners = [images.bannerImage];
+export const promoBanners = [images.bannerImage, images.bannerImage];
 
 export const featuredProducts = [
   { id: "1", title: "PIAA Air Filter\nPT108", imagePath: images.gvItem1 },
@@ -31,4 +31,43 @@ export const featuredProducts = [
   { id: "4", title: "PIAA Air Filter\nPT108", imagePath: images.gvItem1 },
   { id: "5", title: "PIAA Oil Filter\nZ8M", imagePath: images.gvItem2 },
   { id: "6", title: "PIAA Air Filter\nPT83", imagePath: images.gvItem3 },
+];
+
+export const profileOptions = [
+  {
+    id: 1,
+    title: "My Orders",
+    icon: "shopping-bag",
+    onPress: () => {},
+  },
+  {
+    id: 2,
+    title: "Wishlist",
+    icon: "heart",
+    onPress: () => {},
+  },
+  {
+    id: 3,
+    title: "Addresses",
+    icon: "map-pin",
+    onPress: () => {},
+  },
+  {
+    id: 4,
+    title: "Payment Methods",
+    icon: "credit-card",
+    onPress: () => {},
+  },
+  {
+    id: 5,
+    title: "Settings",
+    icon: "settings",
+    onPress: () => {},
+  },
+  {
+    id: 6,
+    title: "Help & Support",
+    icon: "help-circle",
+    onPress: () => {},
+  },
 ];
